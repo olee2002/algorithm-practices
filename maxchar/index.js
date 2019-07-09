@@ -10,9 +10,18 @@ function maxChar(str) {
    for (let l of str){
       obj[l] ? obj[l]++ : obj[l]=1
    }
-   const max = Math.max(...Object.values(obj))
-   const idx = Object.values(obj).indexOf(max)
-   return Object.keys(obj)[idx]
+
+   let max = 0
+   let maxChar = ''
+
+   for (o in obj){
+      if(obj[o]>max){
+         max = obj[o]
+         maxChar = o
+      }
+   }
+
+   return maxChar
 
 }
 
