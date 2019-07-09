@@ -8,11 +8,7 @@
 function maxChar(str) {
    let obj={}
    for (let l of str){
-      if(!Object.keys(obj).includes(l)){
-         obj[l]=1
-      } else {
-         obj[l]++
-      }
+      obj[l] ? obj[l]++ : obj[l]=1
    }
    const max = Math.max(...Object.values(obj))
    const idx = Object.values(obj).indexOf(max)
