@@ -9,31 +9,28 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-   stringA = stringA.replace(/[^\w]/g,'')
-   stringB = stringB.replace(/[^\w]/g,'')
-   const mapA = {}
-   const mapB = {}
+
+   function strMap(str){
+      string = str.replace(/[^\w]/g,'')
+      const map = {}
+      for(let char of string){
+         if(map[char]) {
+            map[char]++
+         } else {
+            map[char] = 1
+         }
+      }
+      return map
+   }
+
    let isAnagrams = false
 
-   for(let char of stringA){
-      if(mapA[char]) {
-         mapA[char]++
-      } else {
-         mapA[char] = 1
-      }
-   }
+   const strA = strMap(stringA)
+   const strB = strMap(stringB)
 
-   for(let char of stringB){
-      if(mapB[char]) {
-         mapB[char]++
-      } else {
-         mapB[char] = 1
-      }
-   }
-
-   if(stringA.length===stringB.length){
-      for(let key in mapA){
-         if(mapA[key]===mapB[key]) {
+   if(Object.keys(strA).length===Object.keys(strB).length){
+      for(let key in strA){
+         if(strA[key]===strB[key]) {
                isAnagrams = true
          } else {
             isAnagrams = false;
