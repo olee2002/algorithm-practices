@@ -9,12 +9,8 @@
 //   reverseInt(-90) === -9
 
 function reverseInt(n) {
-   if(n>=0){
-      return +n.toString().split('').reverse().join('')
-   } else {
-      let absN = Math.abs(n)
-      return -+absN.toString().split('').reverse().join('')
-   }
+
+      return +absN.toString().split('').reverse().join('') * Math.sign(n)
 }
 
 module.exports = reverseInt;
