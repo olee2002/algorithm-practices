@@ -15,6 +15,16 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-function matrix(n) {}
+function matrix(n) {
+const area = n * n 
+const max=[]
+for (let i=0; i<n ; i++){
+   let arr = []
+   for(let j=1; j<=n ; j++){
+      arr.push(i)
+   }
+}
+
+}
 
 module.exports = matrix;
