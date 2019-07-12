@@ -24,6 +24,25 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+function weave(sourceOne, sourceTwo) {
+   //create new queue
+   const result = new Queue();
+   //new queue has alternating content from sourceOne & sourceTwo
+   //get content from sourceOne
+   //iterate? or recursive? to keep pushing the alternative items to result
+   const lastItemOne = sourceOne.peek()
+   const lastItemTwo = sourceTwo.peek()
+   while(lastItemOne || lastItemTwo){
+   const itemSOne = sourceOne.remove()
+   //get content from sourceTwo
+   const itemSTwo = sourceTwo.remove()
+    //add the content of sourceOne & sourceTwo to the new queue
+    if(lastItemOne) result.add(itemSOne)
+    if(lastItemTwo) result.add(itemSTwo)
+   }
+   
+   //handle new queue with undefined
+   return result
+}
 
 module.exports = weave;
